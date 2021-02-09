@@ -1,0 +1,150 @@
+.sidebar {
+flex: 0.3;
+height: 100%;
+display: flex;
+flex-direction: column;
+max-width: 300px;
+}
+.sidebar__header {
+display: flex;
+align-items: center;
+}
+.sidebar__header img {
+width: 3.5rem;
+height: 3.5rem;
+margin-right: 1.5rem;
+border-radius: 1.5rem;
+background: var(--gray);
+position: relative;
+box-shadow: 0 0 0 3px var(--blue);
+}
+.sidebar__header img::before {
+position: absolute;
+width: 12px;
+height: 12px;
+border-radius: 6px;
+background: var(--green);
+z-index: 2;
+right: 0;
+bottom: 0;
+content: '';
+}
+.sidebar__header p {
+font-size: 0.85rem;
+font-weight: 500;
+}
+.sidebar__header .logout {
+color: var(--red);
+cursor: pointer;
+}
+.sidebar__rooms {
+list-style-type: none;
+margin-bottom: -3rem;
+padding: 3rem 0;
+-webkit-mask-image: linear-gradient(to top, transparent 3rem, black 4.5rem, black calc(100% - 3rem), transparent calc(100% - 1.5rem));
+overflow: scroll;
+}
+.navlink {
+display: flex;
+align-items: center;
+padding: 1rem;
+border-radius: 1rem;
+transition: all 0.2s;
+overflow: hidden;
+}
+.navlink.active {
+background: var(--gray);
+}
+.navlink img {
+width: 3rem;
+height: 3rem;
+flex: 0 0 3rem;
+padding: 0.25rem;
+margin-right: 1rem;
+background: var(--yellow);
+box-shadow: 0 0 0 2px var(--yellow);
+border-radius: 6rem;
+}
+.navlink p {
+flex: 1;
+line-height: 1.4;
+opacity: 0.85;
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+}
+.navlink p.name {
+font-weight: 500;
+transition: all 0.2s;
+}
+.navlink.active p.name {
+font-weight: 600;
+}
+.navlink p.msg {
+font-size: 0.85rem;
+color: #19243A99;
+}
+.navlink p.msg b {
+font-weight: 600;
+color: var(--blue);
+opacity: 0.9;
+}
+.sidebar__new {
+padding: 1rem;
+border: 2px dashed var(--blue);
+margin-bottom: 2rem;
+border-radius: 1rem;
+display: flex;
+position: relative;
+cursor: pointer;
+}
+.sidebar__new input {
+flex: 1;
+border: none;
+width: 100%;
+background: var(--gray);
+font-family: Poppins;
+color: var(--dark);
+border-radius: 99px;
+padding: 0 1rem;
+font-size: 1rem;
+}
+.sidebar__new input::placeholder {
+opacity: 0.5;
+color: var(--dark);
+}
+.sidebar__new input:focus, .sidebar__new button:focus {
+outline: none;
+}
+.sidebar__new button {
+width: 2.5rem;
+height: 2.5rem;
+border-radius: 99px;
+background: var(--blue);
+border: none;
+font-size: 1.5rem;
+font-family: Poppins;
+color: var(--white);
+margin-left: 0.5rem;
+}
+.sidebar__new::before {
+position: absolute;
+content: 'Create New Room';
+width: 100%;
+height: 100%;
+display: grid;
+place-items: center;
+background: var(--white);
+left: 0;
+top: 0;
+border-radius: 1rem;
+z-index: 2;
+color: var(--blue);
+font-weight: 500;
+cursor: pointer;
+transition: all 0.2s;
+}
+.sidebar__new.active::before {
+opacity: 0;
+pointer-events: none;
+}

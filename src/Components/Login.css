@@ -1,0 +1,107 @@
+.login {
+width: 100%;
+min-height: 100vh;
+padding: 3rem;
+background: var(--gray);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.app__icon {
+height: 4rem;
+width: auto;
+margin-bottom: 3rem;
+}
+form .error {
+padding: 1rem;
+border: 1px #f0cf6580 solid;
+color: var(--yellow);
+filter: brightness(90%) saturate(110%);
+border-radius: 1rem;
+background: #f0cf6530;
+margin-bottom: 2rem;
+animation: showError 0.5s ease-out;
+}
+@keyframes showError {
+from{transform: scale(0.5);opacity: 0;}
+to{transform: scale(1); opacity: 1;}
+}
+
+.login form {
+background: var(--white);
+padding: 3rem;
+z-index: 99;
+box-shadow: 0 1rem 3rem -1rem #19243A40;
+border-radius: 1rem;
+width: 100%;
+max-width: 25rem;
+}
+.login .input {
+display: flex;
+flex-direction: column;
+margin-bottom: 1.5rem;
+}
+.login input {
+background: var(--gray);
+padding: 0.75rem 1rem;
+width: 100%;
+border-radius: 3rem;
+color: var(--dark);
+font-family: "Poppins";
+font-weight: 500;
+transition: all 0.2s;
+border: none;
+}
+.login label {
+opacity: 0.75;
+font-size: 0.95rem;
+margin-bottom: 0.5rem;
+font-family: "Poppins";
+}
+.login h3 {
+margin-bottom: 3rem;
+}
+.login button {
+background: var(--blue);
+padding: 0.75rem;
+width: 100%;
+border: none;
+border-radius: 3rem;
+transition: all 0.2s;
+color: #fff;
+margin-bottom: 1rem;
+font-weight: 600;
+font-family: "Poppins";
+}
+.login button:disabled {
+opacity: 0.6;
+}
+.login button:hover {
+transform: scale(1.02);
+}
+.login button:focus {
+transform: scale(0.98);
+}
+.login button.google {
+box-shadow: inset 0 0 0 2px var(--blue);
+background: var(--white);
+font-weight: 600;
+color: var(--blue);
+}
+.login form p {
+margin-top: 1.5rem;
+font-size: 0.95rem;
+}
+.login form p span {
+opacity: 0.75;
+}
+.login form p b {
+font-weight: 700;
+text-decoration: none;
+transition: all 0.2s;
+}
+form p b:hover {
+text-decoration: underline !important;
+}
+

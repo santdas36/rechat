@@ -1,0 +1,14 @@
+.app {
+height: 100vh;
+width: 100%;
+background: var(--white);
+}
+.app__inner {
+width: 100%;
+height: 100vh;
+padding: 3rem;
+gap: 3rem;
+display: flex;
+max-width: 1280px;
+max-height: 768px;
+}

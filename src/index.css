@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+--gray: #F3F6FB;
+--yellow: #f0cf65;
+--blue: #5887ff;
+--red: #d7816a;
+--dark: #19243A;
+--white: #fff;
+--green: #27C7A0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*, html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+font-size: 16px;
+font-family: 'Poppins';
+width: 100vw;
+height: 100%;
+background: var(--white);
+color: var(--dark);
+position: relative;
+-webkit-text-size-adjust: 100%;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button:focus, input:focus {
+outline: none;
+}
+
+a {
+text-decoration: none;
+color: var(--dark);
+}
+
+button {
+transition: all 0.2s;
+}
+button:hover{
+filter: brightness(80%) contrast(120%);
+box-shadow: 0 0.5rem 1rem -0.25rem #45506720;
+}
+
+input::placeholder {
+color: var(--dark);
+opacity: 0.5;
+}
