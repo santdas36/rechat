@@ -43,7 +43,7 @@ function Sidebar() {
 					<img src={`https://avatars.dicebear.com/4.5/api/gridy/${room.data().name}.svg`} />
 					<span>
 						<p className="name">{room.data().name}</p>
-						<p className="msg"><b>{room.data().lastMsg?.from.split(' ')[0]} </b>{room.data().lastMsg?.message || 'No new messages'}</p>
+						<p className="msg"><b>{room.data().lastMsg?.from?.split(' ')[0]} </b>{room.data().lastMsg?.message || 'No new messages'}</p>
 					</span>
 				</NavLink></motion.li>
 			))}
