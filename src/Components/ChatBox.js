@@ -118,13 +118,13 @@ function ChatBox() {
 			<img src={`https://avatars.dicebear.com/4.5/api/gridy/${roomDetails?.name}.svg`}/>
 			<h2>{roomDetails?.name}</h2>
 			<div className="chat__options">
-				<button onClick={()=> setOptionsOpen(!optionsOpen)}><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg></button>
+				<button onClick={()=> {setOptionsOpen(!optionsOpen); setDelOpt(null)}}><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg></button>
 				{optionsOpen && <motion.div layout initial={{y: '-1rem', opacity: 0}} exit={{y: '-1rem', opacity: 0}} animate={{y: 0, opacity: 1}} className="chat__buttons">
 				{delOpt ?
 					<><span>Are you sure?</span>
 					{delOpt==='chat' && <button className="red" onClick={clearChat}>Clear Chat</button>}
 					{delOpt==='room' && <button className="red" onClick={deleteRoom}>Delete Room</button>}
-					<button onClick={()=> {setDelOpt(null);setTimeout(()=>setOptionsOpen(false), 500);}}>Cancel</button></>
+					<button onClick={()=> {setDelOpt(null);setTimeout(()=>setOptionsOpen(false), 300);}}>Cancel</button></>
 					:
 					<><button className="red" onClick={()=> setDelOpt('chat')}>Clear Chat</button>
 					<button className="red" onClick={()=> setDelOpt('room')}>Delete Room</button></>
