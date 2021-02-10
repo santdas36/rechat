@@ -2,6 +2,8 @@
 height: 100vh;
 width: 100%;
 background: var(--white);
+display: grid;
+place-items: center;
 }
 .app__inner {
 width: 100%;
