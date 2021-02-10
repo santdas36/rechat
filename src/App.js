@@ -55,6 +55,7 @@ function App() {
           </motion.div>
         : <Login/>}
       </AnimatePresence>
+      <a class="footer" href="https://github.com/santdas36/rechat">@santdas36</a>
     </div>
   );
 }
