@@ -143,8 +143,10 @@ color: var(--blue);
 font-weight: 500;
 cursor: pointer;
 transition: all 0.2s;
+opacity: 1;
 }
 .sidebar__new.active::before {
 opacity: 0;
+top: 0.5rem;
 pointer-events: none;
 }
