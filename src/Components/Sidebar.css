@@ -146,7 +146,7 @@ transition: all 0.5s;
 }
 .sidebar__new.active::before {
 opacity: 0;
-transform: scale(1.2);
+transform: scale(0.85);
 top: 0.5rem;
 pointer-events: none;
 }
