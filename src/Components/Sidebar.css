@@ -142,11 +142,11 @@ z-index: 2;
 color: var(--blue);
 font-weight: 500;
 cursor: pointer;
-transition: all 0.2s;
-opacity: 1;
+transition: all 0.5s;
 }
 .sidebar__new.active::before {
 opacity: 0;
+transform: scale(1.2);
 top: 0.5rem;
 pointer-events: none;
 }
