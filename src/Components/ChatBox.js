@@ -47,7 +47,8 @@ function ChatBox() {
 	
 	const clearChat = () => {
 		if(messages) {
-			messages.forEach((msg) => {
+			const tempMsgs = messages;
+			tempMsgs.forEach((msg) => {
 				db.collection('rooms').doc(roomId).collection('messages').doc(msg.msgId).delete();
 			});
 			db.collection('rooms').doc(roomId).set({
