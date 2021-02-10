@@ -1,6 +1,6 @@
 import './ChatBox.css';
 import {useEffect, useState, useRef} from 'react';
-import {useParams} from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 import {motion} from 'framer-motion';
 import {db, timestamp, storage} from '../firebase';
 import {useStateValue} from '../StateProvider';
@@ -9,6 +9,7 @@ import Message from './Message';
 function ChatBox() {
 	
 	const {roomId} = useParams();
+	const history = useHistory();
 	const fileElem = useRef(null);
 	const scroller = useRef(null);
 	const [{user}, dispatch] = useStateValue();
@@ -19,6 +20,7 @@ function ChatBox() {
 	const [userInp, setUserInp] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [notFound, setNotFound] = useState(false);
+	const [delOpt, setDelOpt] =useState(false);
 	
 	useEffect(()=> {
 		db.collection('rooms').doc(roomId).get().then((data)=> {
@@ -41,6 +43,24 @@ function ChatBox() {
 			setFileSelected(fileElem.current.files[0]);
 			uploadImg();
 		}
+	}
+	
+	const clearChat = () => {
+		if(messages) {
+			messages.forEach((msg) => {
+				db.collection('rooms').doc(roomId).collection('messages').doc(msg.msgId).delete();
+			});
+			db.collection('rooms').doc(roomId).set({
+				lastMsg: {}
+			}, {merge: true}).then(()=> {
+				setDelOpt(null);
+				setOptionsOpen(false);
+			});
+		}	
+	}
+	
+	const deleteRoom = () => {
+		db.collection('rooms').doc(roomId).delete().then(()=> history.push('/'));
 	}
 	
 	useEffect(()=> {
@@ -98,9 +118,16 @@ function ChatBox() {
 			<h2>{roomDetails?.name}</h2>
 			<div className="chat__options">
 				<button onClick={()=> setOptionsOpen(!optionsOpen)}><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg></button>
-				{optionsOpen && <motion.div initial={{y: '-1rem', opacity: 0}} exit={{y: '-1rem', opacity: 0}} animate={{y: 0, opacity: 1}} className="chat__buttons">
-					<button>Clear Chat</button>
-					<button>Delete Room</button>
+				{optionsOpen && <motion.div layout initial={{y: '-1rem', opacity: 0}} exit={{y: '-1rem', opacity: 0}} animate={{y: 0, opacity: 1}} className="chat__buttons">
+				{delOpt ?
+					<><span>Are you sure?</span>
+					{delOpt==='chat' && <button className="red" onClick={clearChat}>Clear Chat</button>}
+					{delOpt==='room' && <button className="red" onClick={deleteRoom}>Delete Room</button>}
+					<button onClick={()=> {setDelOpt(null);setTimeout(()=>setOptionsOpen(false), 1000);}}>Cancel</button></>
+					:
+					<><button className="red" onClick={()=> setDelOpt(chat)}>Clear Chat</button>
+					<button className="red" onClick={()=> setDelOpt(room)}>Delete Room</button></>
+					}
 				</motion.div>}
 			</div>
 		</div>

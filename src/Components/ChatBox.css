@@ -48,7 +48,17 @@ background: var(--white);
 white-space: nowrap;
 padding: 0.5rem 1rem;
 border-radius: 1rem;
+color: var(--blue);
+font-size: 0.85rem;
+}
+.chat__buttons button.red {
 color: var(--red);
+}
+.chat__buttons span {
+padding: 0.5rem;
+display: block;
+white-space: nowrap;
+font-size: 0.9rem;
 }
 .chat__options > button {
 border: none;
