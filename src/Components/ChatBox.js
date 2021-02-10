@@ -125,8 +125,8 @@ function ChatBox() {
 					{delOpt==='room' && <button className="red" onClick={deleteRoom}>Delete Room</button>}
 					<button onClick={()=> {setDelOpt(null);setTimeout(()=>setOptionsOpen(false), 1000);}}>Cancel</button></>
 					:
-					<><button className="red" onClick={()=> setDelOpt(chat)}>Clear Chat</button>
-					<button className="red" onClick={()=> setDelOpt(room)}>Delete Room</button></>
+					<><button className="red" onClick={()=> setDelOpt('chat')}>Clear Chat</button>
+					<button className="red" onClick={()=> setDelOpt('room')}>Delete Room</button></>
 					}
 				</motion.div>}
 			</div>
