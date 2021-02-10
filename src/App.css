@@ -23,12 +23,12 @@ width: fit-content;
 font-weight: 500;
 text-decoration: none;
 color: var(--blue);
-padding: 0.5rem 1rem 0.5rem 1rem;
+padding: 0.33rem 1rem 0.33rem 1rem;
 border-radius: 1rem 1rem 0 0;
 border: 2px solid var(--blue);
 border-bottom: none;
 transition: all 0.2s;
-font-size: 1rem;
+font-size: 0.9rem;
 }
 .footer:hover {
 background: var(--blue);
