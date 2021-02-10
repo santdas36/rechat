@@ -11,6 +11,7 @@ gap: 3rem;
 display: flex;
 max-width: 1280px;
 max-height: 768px;
+margin: auto;
 }
 
 .footer {
