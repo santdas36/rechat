@@ -1,6 +1,6 @@
 import './Sidebar.css';
 import {useEffect, useState} from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import {motion} from 'framer-motion';
 import {db, auth, timestamp} from '../firebase';
 import {useStateValue} from '../StateProvider';
@@ -8,6 +8,7 @@ import {useStateValue} from '../StateProvider';
 function Sidebar() {
 	
 	const [{user, rooms}, dispatch] = useStateValue();
+	const history = useHistory();
 	const [newOpen, setNewOpen] = useState(false);
 	const [roomName, setRoomName] = useState('');
 	
@@ -17,7 +18,10 @@ function Sidebar() {
 		db.collection('rooms').add({
 			name: roomName,
 			last_modified: timestamp,
-		}).then(()=> setRoomName(''));
+		}).then((doc)=> {
+			setRoomName('');
+			history.push(`/room/${doc.id}`);
+		});
 	}
 	
   return (

@@ -50,6 +50,9 @@ function App() {
           		<Route>
           			{()=> {document.title="ReChat App"}}
           			<Sidebar/>
+          			<div className="chatbox">
+    					<div className="notfound"><h3>Select a Room or Create a new one...</h3></div> 
+    				  </div>	
           		</Route>
           	</Switch>
           </motion.div>
