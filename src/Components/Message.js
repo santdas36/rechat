@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom';
 import {motion} from 'framer-motion';
 import {db, auth, timestamp} from '../firebase';
 import {useStateValue} from '../StateProvider';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 
 function Message({msg, userDet}) {
 	
