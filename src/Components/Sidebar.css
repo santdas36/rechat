@@ -66,15 +66,18 @@ box-shadow: 0 0 0 2px var(--yellow);
 border-radius: 6rem;
 }
 .navlink span {
-white-space: nowrap;
-text-overflow: ellipsis;
 display: inline-block;
 flex: 1;
 overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
 }
 .navlink p {
 line-height: 1.4;
 opacity: 0.85;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
 }
 .navlink p.name {
 font-weight: 500;
