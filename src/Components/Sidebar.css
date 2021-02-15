@@ -65,15 +65,16 @@ background: var(--yellow);
 box-shadow: 0 0 0 2px var(--yellow);
 border-radius: 6rem;
 }
-.navlink p {
-flex: 1;
-line-height: 1.4;
-opacity: 0.85;
+.navlink span {
 white-space: nowrap;
 text-overflow: ellipsis;
-display: block;
+display: inline-block;
 flex: 1;
 overflow: hidden;
+}
+.navlink p {
+line-height: 1.4;
+opacity: 0.85;
 }
 .navlink p.name {
 font-weight: 500;
