@@ -71,6 +71,8 @@ line-height: 1.4;
 opacity: 0.85;
 white-space: nowrap;
 text-overflow: ellipsis;
+display: block;
+flex: 1;
 overflow: hidden;
 }
 .navlink p.name {
