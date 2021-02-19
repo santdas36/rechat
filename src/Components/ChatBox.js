@@ -65,6 +65,7 @@ function ChatBox() {
 	
 	const uploadImage = () => {
 		if (fileElem.current.files.length > 0) {
+			console.log(fileElem.current.files[0]);
 			const selectedImage = fileElem.current.files[0];
 			setFileSelected(true);
 			const uploadTask = storage.ref(`images/${selectedImage.name}`).put(fileSelected);
