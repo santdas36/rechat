@@ -127,6 +127,8 @@ font-size: 1rem;
 color: var(--white);
 border-radius: 99px;
 font-family: Poppins;
+display: grid;
+place-items: center;
 }
 .chat__input .submit svg {
 height: 1.5rem;

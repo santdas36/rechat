@@ -79,6 +79,7 @@ function ChatBox() {
 					img: {src: url}
 				}, {merge: true}).then(()=> {
 					fileElem.current.value = null;
+					setFileSelected(false);
 					setUserInp('');
 					setLoading(false);
 				});
@@ -105,7 +106,7 @@ function ChatBox() {
 			db.collection('rooms').doc(roomId).set({
 				last_modified: timestamp,
 				lastMsg: {
-					message: userInp,
+					message: userInp ? userInp : (fileSelected ? 'sent a picture.' : ''),
 					from: user.displayName,
 				}
 			}, {merge: true}).then(() => {
