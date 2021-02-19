@@ -95,6 +95,7 @@ display: flex;
 align-items: center;
 font-weight: 300;
 font-family: serif;
+cursor: pointer;
 }
 .like span {
 line-height: 1;
