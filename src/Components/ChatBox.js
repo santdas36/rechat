@@ -63,17 +63,26 @@ function ChatBox() {
 		}
 	}, [messages]);
 	
-	const uploadImage = () => {
+	const addImage = () => {
 		if (fileElem.current.files.length > 0) {
-			console.log(fileElem.current.files[0]);
-			const selectedImage = fileElem.current.files[0];
 			setFileSelected(true);
-			const uploadTask = storage.ref(`images/${selectedImage.name}`).put(fileSelected);
-			const imgUrl = uploadTask.on("state_changed", null, null, ()=> {
-				return storage.ref("images").child(selectedImage.name).getDownloadURL();
-			});
-			console.log(imgUrl);
 		}
+	}
+	
+	const uploadImage = (messageId) => {
+		const selectedImage = fileElem.current.files[0];
+		const uploadTask = storage.ref(`images/${selectedImage.name}`).put(fileSelected);
+		uploadTask.on("state_changed", null, null, ()=> {
+			storage.ref("images").child(selectedImage.name).getDownloadURL().then((url)=> {
+				db.collection('rooms').doc(roomId).collection('messages').doc(messageId).set({
+					img: {src: url}
+				}, {merge: true}).then(()=> {
+					fileElem.current.value = null;
+					setUserInp('');
+					setLoading(false);
+				});
+			});
+		});
 	}
 	
 	const sendMessage = (e) => {
@@ -91,7 +100,7 @@ function ChatBox() {
 				value: 0,
 				liked_by: [],
 			}
-		}).then(()=> {
+		}).then((docRef)=> {
 			db.collection('rooms').doc(roomId).set({
 				last_modified: timestamp,
 				lastMsg: {
@@ -99,8 +108,12 @@ function ChatBox() {
 					from: user.displayName,
 				}
 			}, {merge: true}).then(() => {
-				setUserInp('');
-				setLoading(false);
+				if (fileSelected) {
+					uploadImage(docRef.id);
+				} else {
+					setUserInp('');
+					setLoading(false);
+				}
 			});
 		});
 	}
@@ -135,7 +148,7 @@ function ChatBox() {
 			<div ref={scroller} className="scroller"></div>
 		</div>
 		<form onSubmit={sendMessage} className="chat__input">
-			<input onChange={uploadImage} type="file" ref={fileElem} accept="image/*" style={{display:'none'}} />
+			<input onChange={addImage} type="file" ref={fileElem} accept="image/*" style={{display:'none'}} />
 			<button type="button" onClick={(e)=> {e.preventDefault(); fileElem.current.click();}} className={`addImg ${fileSelected ? 'green' : ''}`}><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></button>
 			<input value={userInp} onChange={(e)=>setUserInp(e.target.value)} type="text" required placeholder="Type Here..."/>
 			<button type="submit" disabled={loading} className="submit">{loading? 'Sending...' : 'Send'}</button>
