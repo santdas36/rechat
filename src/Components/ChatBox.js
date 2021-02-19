@@ -98,10 +98,7 @@ function ChatBox() {
 			},
 			message: userInp,
 			timestamp: timestamp,
-			likes: {
-				value: 0,
-				liked_by: [],
-			}
+			likes: [],
 		}).then((docRef)=> {
 			db.collection('rooms').doc(roomId).set({
 				last_modified: timestamp,
