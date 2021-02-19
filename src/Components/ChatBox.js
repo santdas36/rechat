@@ -71,7 +71,7 @@ function ChatBox() {
 	
 	const uploadImage = (messageId) => {
 		const selectedImage = fileElem.current.files[0];
-		const uploadTask = storage.ref(`images/${selectedImage.name}`).put(fileSelected);
+		const uploadTask = storage.ref(`images/${selectedImage.name}`).put(selectedImage);
 		uploadTask.on("state_changed", null, null, ()=> {
 			storage.ref("images").child(selectedImage.name).getDownloadURL().then((url)=> {
 				db.collection('rooms').doc(roomId).collection('messages').doc(messageId).set({
