@@ -128,7 +128,9 @@ color: var(--white);
 border-radius: 99px;
 font-family: Poppins;
 }
-
+.chat__input .submit svg {
+height: 1.5rem;
+}
 .chat__messages {
 flex: 1;
 overflow: scroll;
