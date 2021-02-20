@@ -35,7 +35,9 @@ function ChatBox({setSidebarOpen}) {
 		});
 		const unsubscribe = db.collection('rooms').doc(roomId).collection('messages').orderBy('timestamp').onSnapshot((snap) => {
 			setPrevMessages(messages);
-			setMessages(snap.docs.map((msg) => ({msgId: msg.id, msgData: msg.data()})));
+			setTimeout(()=> {
+				setMessages(snap.docs.map((msg) => ({msgId: msg.id, msgData: msg.data()})));
+			}, 50);
 		});
 		
 		return unsubscribe;
@@ -61,7 +63,7 @@ function ChatBox({setSidebarOpen}) {
 	}
 	
 	useEffect(()=> {
-		if(!notFound && (prevMessages.length !== messages.length)) {
+		if(!notFound && (prevMessages.length < messages.length)) {
 			scroller.current.scrollIntoView({behavior: 'smooth'});
 		}
 	}, [messages]);
