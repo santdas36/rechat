@@ -112,6 +112,9 @@ flex: 1;
 border-radius: 0;
 height: 100%;
 }
+.time {
+white-space: wrap;
+}
 .chat__input .submit {
 flex: 0 0 2.5rem;
 height: 2.5rem;
