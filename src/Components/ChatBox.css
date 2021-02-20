@@ -135,7 +135,8 @@ height: 1.5rem;
 }
 .chat__messages {
 flex: 1;
-overflow: scroll;
+overflow-y: scroll;
+overflow-x: hidden;
 padding: 0.5rem 1rem;
 padding-bottom: 1rem;
 display: flex;
