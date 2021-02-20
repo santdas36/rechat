@@ -114,7 +114,6 @@ height: 100%;
 }
 .time {
 white-space: normal;
-word-wrap: break-word;
 }
 .time span {
 display: none;
