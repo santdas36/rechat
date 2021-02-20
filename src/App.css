@@ -112,12 +112,17 @@ flex: 1;
 border-radius: 0;
 height: 100%;
 }
+.chat__input .submit {
+flex: 0 0 2.5rem;
+height: 2.5rem;
+width: 2.5rem;
+}
 .submit span {
 display: none;
 }
 .submit .sendSvg {
 width: 1.25rem;
-transform: rotate(45deg);
+transform: rotate(45deg) translateY(-0.125rem);
 }
 .message {
 font-size: 0.85rem;
