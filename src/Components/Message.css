@@ -10,6 +10,7 @@ box-shadow: 0 0.25rem 0.5rem #19243A10;
 user-select: none;
 display: flex;
 flex-direction: column;
+transition: all 0.2s;
 }
 .message.hasImage {
 padding: 0.5rem;
@@ -121,3 +122,27 @@ left: 1rem;
 right: auto;
 font-weight: 400;
 }
+.time {
+position: absolute;
+bottom: -1rem;
+left: 1rem;
+line-height: 1;
+font-size: 0.75rem;
+opacity: 0;
+transition: all 0.2s;
+white-space: nowrap;
+color: var(--dark);
+}
+.message.sent .time {
+right: 1rem;
+left: auto;
+}
+.message:hover .time{
+bottom: -1.25rem;
+opacity: 0.75;
+}
+.message:hover {
+margin-bottom: 1rem;
+}
+
+
