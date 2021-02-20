@@ -116,6 +116,9 @@ height: 100%;
 white-space: normal;
 word-wrap: break-word;
 }
+.time span {
+display: none;
+}
 .chat__input .submit {
 flex: 0 0 2.5rem;
 height: 2.5rem;

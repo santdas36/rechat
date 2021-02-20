@@ -125,22 +125,26 @@ font-weight: 400;
 .time {
 position: absolute;
 bottom: 0.5rem;
-left: 100%;
+left: 0;
 line-height: 1;
 font-size: 0.75rem;
 opacity: 0;
-transition: all 0.2s;
+transition: opacity 0.2s, transform 0.2s;
 white-space: nowrap;
+transform: scale(0.5);
+transform-origin: left center;
 color: var(--dark);
 pointer-events: none;
 }
 .message.sent .time {
-right: 100%;
+right: 0;
 left: auto;
+transform-origin: right center;
 }
 .message:hover .time{
 left: calc(100% + 0.5rem);
 opacity: 0.75;
+transform: scale(1);
 }
 .message.sent:hover .time{
 right: calc(100% + 0.5rem);
