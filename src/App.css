@@ -106,7 +106,7 @@ font-size: 0.85rem;
 max-width: 90%;
 }
 .message .img {
-width: 240px;
+min-width: 240px;
 }
 .chat__input input {
 width: 100%;

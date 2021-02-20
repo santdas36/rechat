@@ -8,6 +8,8 @@ margin-top: 0.75rem;
 max-width: 80%;
 box-shadow: 0 0.25rem 0.5rem #19243A10;
 user-select: none;
+display: flex;
+flex-direction: column;
 }
 .message a {
 font-weight: 500;
@@ -63,7 +65,8 @@ background: var(--dark);
 }
 
 .message .img {
-width: 360px;
+width: 100%;
+min-width: 360px;
 padding-bottom: 75%;
 margin: 0 -0.5rem 0.5rem -0.5rem;
 border-radius: 1.5rem;
