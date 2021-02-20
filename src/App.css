@@ -47,14 +47,17 @@ display: none;
 }
 }
 @media (max-width: 550px) {
+.app {
+height: 100%;
+}
 .app__inner {
 flex-direction: column;
 gap: 0;
 padding: 0;
-height: 100vh;
+height: 100%;
 }
 .login {
-padding: 0.75rem;
+padding: 1.5rem;
 height: 100%;
 overflow: scroll;
 justify-content: flex-start;
