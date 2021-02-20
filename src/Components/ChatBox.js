@@ -63,8 +63,11 @@ function ChatBox({setSidebarOpen}) {
 	}
 	
 	useEffect(()=> {
-		if(!notFound && (prevMessages.length < messages.length)) {
-			scroller.current.scrollIntoView({behavior: 'smooth'});
+		if(!notFound) {
+			if (prevMessages.length < messages.length) {
+				scroller.current.scrollIntoView({behavior: 'smooth'});
+				console.log(prevMessages.length, messages.length);
+			}
 		}
 	}, [messages]);
 	
