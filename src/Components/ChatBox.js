@@ -2,7 +2,8 @@ import './ChatBox.css';
 import {useEffect, useState, useRef} from 'react';
 import {useParams, useHistory} from "react-router-dom";
 import {motion} from 'framer-motion';
-import {db, timestamp, storage} from '../firebase';
+import {db, storage} from '../firebase';
+import firebase from 'firebase/app';
 import {useStateValue} from '../StateProvider';
 import {ReactComponent as LoadingIcon} from '../assets/loading.svg';
 import Message from './Message';
@@ -101,11 +102,11 @@ function ChatBox({setSidebarOpen}) {
 				photoURL: user.photoURL,
 			},
 			message: userInp,
-			timestamp: timestamp,
+			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 			likes: [],
 		}).then((docRef)=> {
 			db.collection('rooms').doc(roomId).set({
-				last_modified: timestamp,
+				last_modified: firebase.firestore.FieldValue.serverTimestamp(),
 				lastMsg: {
 					message: userInp ? userInp : (fileSelected ? 'sent a picture.' : ''),
 					from: user.displayName,

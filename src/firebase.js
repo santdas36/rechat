@@ -18,9 +18,8 @@ const firebaseInstance = firebase.initializeApp(firebaseConfig);
 const db = firebaseInstance.firestore();
 const auth = firebase.auth();
 const analytics = firebase.analytics();
-const timestamp = firebase.firestore.FieldValue.serverTimestamp();
 const provider = new firebase.auth.GoogleAuthProvider();
 const storage = firebase.storage();
 
 
-export { auth, db, timestamp, analytics, provider, storage };
+export { auth, db, analytics, provider, storage };

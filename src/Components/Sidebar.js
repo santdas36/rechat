@@ -2,7 +2,8 @@ import './Sidebar.css';
 import {useEffect, useState} from 'react';
 import {NavLink, useHistory} from "react-router-dom";
 import {motion} from 'framer-motion';
-import {db, auth, timestamp} from '../firebase';
+import {db, auth} from '../firebase';
+import firebase from 'firebase/app';
 import {useStateValue} from '../StateProvider';
 
 function Sidebar({sidebarOpen, setSidebarOpen}) {
@@ -17,7 +18,7 @@ function Sidebar({sidebarOpen, setSidebarOpen}) {
 		setNewOpen(false);
 		db.collection('rooms').add({
 			name: roomName,
-			last_modified: timestamp,
+			last_modified: firebase.firestore.FieldValue.serverTimestamp(),
 		}).then((doc)=> {
 			setRoomName('');
 			history.push(`/room/${doc.id}`);
