@@ -145,7 +145,7 @@ transform-origin: right center;
 left: calc(100% + 0.5rem);
 opacity: 0.75;
 transform: scale(1);
-transition: opacity 0.2s 0.01s, transform 0.2s 0.01s, left 0.01s 0.2s, right 0.01s 0.2s;
+transition: opacity 0.2s 0.01s, transform 0.2s 0.01s, left 0.01s, right 0.01s;
 }
 .message.sent:hover .time{
 right: calc(100% + 0.5rem);
