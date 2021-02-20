@@ -14,7 +14,7 @@ function Message({msg, userDet}) {
 	const msgData = msg.msgData;
 	const [{user}, dispatch] = useStateValue();	
 	const msgRef = db.collection('rooms').doc(roomId).collection('messages').doc(msgId);
-	const time = new Date((msgData.timestamp.seconds + 19800 + new Date().getTimezoneOffset()*60)*1000);
+	const time = msgData.timestamp ? new Date((msgData.timestamp.seconds + 19800 + new Date().getTimezoneOffset()*60)*1000) : 0;
 	
 	const addLike = () => {
 		if (!msgData.likes.includes(user.email)) {
