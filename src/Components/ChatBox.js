@@ -61,12 +61,12 @@ function ChatBox({setSidebarOpen}) {
 	
 	useEffect(()=> {
 		if(!notFound) {
-			if (prevMessages.length < messages.length) {
+			if (prevMessages.length !== messages.length) {
 				scroller.current.scrollIntoView({behavior: 'smooth'});
 				setPrevMessages(messages);
 			}
 		}
-	}, [messages]);
+	}, [messages, prevMessages]);
 	
 	const addImage = () => {
 		if (fileElem.current.files.length > 0) {
