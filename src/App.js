@@ -1,4 +1,3 @@
-import './App.css';
 import {useEffect, useState} from 'react';
 import {Route, Redirect, Switch, useLocation} from "react-router-dom";
 import {AnimatePresence, motion} from 'framer-motion';
@@ -7,6 +6,7 @@ import {useStateValue} from './StateProvider';
 import Login from './Components/Login';
 import Sidebar from './Components/Sidebar';
 import ChatBox from './Components/ChatBox';
+import './App.css';
 
 function App() {
 	

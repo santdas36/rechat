@@ -32,6 +32,7 @@ function Sidebar() {
 				<h3>Hi, {user?.displayName?.split(' ')[0]}!</h3>
 				<p><span className="logout" onClick={()=> auth.signOut()}>LogOut</span></p>
 			</span>
+			<svg class="closeSidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
 		</div>
 		<div className="sidebar__rooms">
 			<form onSubmit={(e)=>createRoom(e)} className={`sidebar__new ${newOpen ? 'active' : ''}`} onClick={()=>setNewOpen(true)}>
