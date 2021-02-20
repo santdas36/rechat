@@ -54,18 +54,23 @@ padding: 0;
 height: 100vh;
 }
 .login {
-padding: 1.5rem;
-align-items: flex-start;
+padding: 0.75rem;
+height: 100%;
+overflow: scroll;
+justify-content: flex-start;
 }
 .app__icon {
 margin-top: 3rem;
 }
 .login form {
-padding: 1.5rem 1rem;
+padding: 1.5rem;
 margin-bottom: 1.5rem;
 }
 .login form h3 {
 margin-bottom: 1.5rem;
+}
+.login form p {
+font-size: 0.85rem;
 }
 .sidebar {
 background: var(--white);
