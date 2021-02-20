@@ -129,7 +129,7 @@ left: 0;
 line-height: 1;
 font-size: 0.75rem;
 opacity: 0;
-transition: opacity 0.2s, transform 0.2s;
+transition: opacity 0.2s, transform 0.2s, left 0.01s 0.2s, right 0.01s 0.2s;
 white-space: nowrap;
 transform: scale(0.5);
 transform-origin: left center;
@@ -145,6 +145,7 @@ transform-origin: right center;
 left: calc(100% + 0.5rem);
 opacity: 0.75;
 transform: scale(1);
+transition: opacity 0.2s 0.01s, transform 0.2s 0.01s, left 0.01s 0.2s, right 0.01s 0.2s;
 }
 .message.sent:hover .time{
 right: calc(100% + 0.5rem);
