@@ -113,7 +113,8 @@ border-radius: 0;
 height: 100%;
 }
 .time {
-white-space: wrap;
+white-space: normal;
+word-wrap: break-word;
 }
 .chat__input .submit {
 flex: 0 0 2.5rem;
