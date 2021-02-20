@@ -52,7 +52,9 @@ flex-direction: column;
 gap: 0;
 padding: 0;
 height: 100vh;
-overflow: ;
+}
+.login {
+padding: 1.5rem;
 }
 .sidebar {
 background: var(--white);
