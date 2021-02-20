@@ -67,7 +67,7 @@ function ChatBox({setSidebarOpen}) {
 				scroller.current.scrollIntoView({behavior: firstLoad ? 'auto' : 'smooth'});
 				setPrevMessages(messages);
 			}
-			if (firstLoad) {
+			if (firstLoad && prevMessages) {
 				setFirstLoad(false);
 			}
 		}
