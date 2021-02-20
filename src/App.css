@@ -64,18 +64,20 @@ height: 100%;
 padding: 1.5rem;
 padding-top: 3rem;
 position: fixed;
-transform: translateY(-100%);
+transform: translateX(-100%);
 left: 0;
 top: 0;
 opacity: 0;
 pointer-events: none;
-transition: all 0.5s;
 z-index: 99;
+box-shadow: 0 0 3rem #19243A50;
+transition: transform 0.5s, opacity 0.1s 0.5s;
 }
 .sidebar.open {
 opacity: 1;
-transform: translateY(0);
+transform: translateX(0);
 pointer-events: auto;
+transition: transform 0.5s 0.1s, opacity 0.1s;
 }
 .closeSidebar {
 width: 1.5rem;

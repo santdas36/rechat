@@ -7,7 +7,7 @@ import {useStateValue} from '../StateProvider';
 import {ReactComponent as LoadingIcon} from '../assets/loading.svg';
 import Message from './Message';
 
-function ChatBox() {
+function ChatBox({setSidebarOpen}) {
 	
 	const {roomId} = useParams();
 	const history = useHistory();
@@ -125,7 +125,7 @@ function ChatBox() {
     	</div>)
     	:
     	(<><div className="chat__header">
-    		<svg class="openSidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path></svg>
+    		<svg onClick={()=>setSidebarOpen(true)} class="openSidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path></svg>
 			<img src={`https://avatars.dicebear.com/4.5/api/gridy/${roomDetails?.name}.svg`}/>
 			<h2>{roomDetails?.name}</h2>
 			<div className="chat__options">

@@ -12,7 +12,8 @@ function App() {
 	
 	const [{user}, dispatch] = useStateValue();
 	const location = useLocation();
-	
+	const [sidebarOpen, setSidebarOpen] = useState(false);
+
 	useEffect(()=> {
 		document.title = 'Loading...';
 		auth.onAuthStateChanged((user) => {
@@ -44,12 +45,12 @@ function App() {
           <motion.div initial={{opacity: 0, y: '1rem'}} exit={{opacity: 0, y: '-1rem'}} animate={{opacity: 1, y: 0}} className="app__inner">
           	<Switch location={location} key={location.pathname}>
           		<Route path="/room/:roomId">
-          			<Sidebar/>
-          			<ChatBox/>
+          			<Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
+          			<ChatBox setSidebarOpen={setSidebarOpen}/>
           		</Route>
           		<Route>
           			{()=> {document.title="ReChat App"}}
-          			<Sidebar/>
+          			<Sidebar sidebarOpen={true} setSidebarOpen={setSidebarOpen}/>
           			<motion.div initial={{opacity: 0}} exit={{opacity: 0}} animate={{opacity: 1}} className="chatbox">
     					<div className="notfound"><h3>Select a Room or Create a new one...</h3></div> 
     				  </motion.div>	
