@@ -23,7 +23,8 @@ function ChatBox({setSidebarOpen}) {
 	const [userInp, setUserInp] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [notFound, setNotFound] = useState(false);
-	const [delOpt, setDelOpt] =useState(false);
+	const [delOpt, setDelOpt] = useState(false);
+	const [firstLoad, setFirstLoad] = useState(true);
 	
 	useEffect(()=> {
 		db.collection('rooms').doc(roomId).get().then((data)=> {
@@ -63,8 +64,11 @@ function ChatBox({setSidebarOpen}) {
 	useEffect(()=> {
 		if(!notFound) {
 			if (prevMessages.length !== messages.length) {
-				scroller.current.scrollIntoView({behavior: 'smooth'});
+				scroller.current.scrollIntoView({behavior: firstLoad ? 'auto' : 'smooth'});
 				setPrevMessages(messages);
+			}
+			if (firstLoad) {
+				setFirstLoad(false);
 			}
 		}
 	}, [messages, prevMessages]);
