@@ -132,6 +132,7 @@ opacity: 0;
 transition: all 0.2s;
 white-space: nowrap;
 color: var(--dark);
+pointer-events: none;
 }
 .message.sent .time {
 right: 100%;
