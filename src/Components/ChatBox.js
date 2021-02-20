@@ -34,10 +34,7 @@ function ChatBox({setSidebarOpen}) {
 			}
 		});
 		const unsubscribe = db.collection('rooms').doc(roomId).collection('messages').orderBy('timestamp').onSnapshot((snap) => {
-			setPrevMessages(messages);
-			setTimeout(()=> {
-				setMessages(snap.docs.map((msg) => ({msgId: msg.id, msgData: msg.data()})));
-			}, 50);
+			setMessages(snap.docs.map((msg) => ({msgId: msg.id, msgData: msg.data()})));
 		});
 		
 		return unsubscribe;
@@ -66,7 +63,7 @@ function ChatBox({setSidebarOpen}) {
 		if(!notFound) {
 			if (prevMessages.length < messages.length) {
 				scroller.current.scrollIntoView({behavior: 'smooth'});
-				console.log(prevMessages.length, messages.length);
+				setPrevMessages(messages);
 			}
 		}
 	}, [messages]);
