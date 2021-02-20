@@ -55,6 +55,14 @@ height: 100vh;
 }
 .login {
 padding: 1.5rem;
+justify-content: flex-start;
+}
+.app__icon {
+margin-top: 3rem;
+}
+.login form {
+padding: 1rem;
+margin-bottom: 1.5rem;
 }
 .sidebar {
 background: var(--white);
