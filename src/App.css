@@ -55,13 +55,16 @@ height: 100vh;
 }
 .login {
 padding: 1.5rem;
-justify-content: flex-start;
+align-items: flex-start;
 }
 .app__icon {
 margin-top: 3rem;
 }
 .login form {
-padding: 1rem;
+padding: 1.5rem 1rem;
+margin-bottom: 1.5rem;
+}
+.login form h3 {
 margin-bottom: 1.5rem;
 }
 .sidebar {
