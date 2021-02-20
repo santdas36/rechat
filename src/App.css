@@ -117,6 +117,9 @@ flex: 0 0 2.5rem;
 height: 2.5rem;
 width: 2.5rem;
 }
+.chat__input input {
+flex: 1;
+}
 .submit span {
 display: none;
 }
