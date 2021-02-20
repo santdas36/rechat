@@ -124,8 +124,8 @@ font-weight: 400;
 }
 .time {
 position: absolute;
-bottom: -1rem;
-left: 1rem;
+bottom: 0.5rem;
+left: 100%;
 line-height: 1;
 font-size: 0.75rem;
 opacity: 0;
@@ -134,15 +134,15 @@ white-space: nowrap;
 color: var(--dark);
 }
 .message.sent .time {
-right: 1rem;
+right: 100%;
 left: auto;
 }
 .message:hover .time{
-bottom: -1.25rem;
+left: calc(100% + 0.5rem);
 opacity: 0.75;
 }
-.message:hover {
-margin-bottom: 1.25rem;
+.message.sent:hover .time{
+right: calc(100% + 0.5rem);
+left: auto;
+opacity: 0.75;
 }
-
-
