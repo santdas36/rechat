@@ -16,6 +16,7 @@ function ChatBox({setSidebarOpen}) {
 	const [{user}, dispatch] = useStateValue();
 	const [optionsOpen, setOptionsOpen] = useState(false);
 	const [messages, setMessages] = useState([]);
+	const [prevMessages, setPrevMessages] = useState([]);
 	const [roomDetails, setRoomDetails] = useState(null);
 	const [fileSelected, setFileSelected] = useState(false);
 	const [userInp, setUserInp] = useState('');
@@ -33,6 +34,7 @@ function ChatBox({setSidebarOpen}) {
 			}
 		});
 		const unsubscribe = db.collection('rooms').doc(roomId).collection('messages').orderBy('timestamp').onSnapshot((snap) => {
+			setPrevMessages(messages);
 			setMessages(snap.docs.map((msg) => ({msgId: msg.id, msgData: msg.data()})));
 		});
 		
@@ -59,7 +61,7 @@ function ChatBox({setSidebarOpen}) {
 	}
 	
 	useEffect(()=> {
-		if(!notFound) {
+		if(!notFound && (prevMessages.length !== messages.length)) {
 			scroller.current.scrollIntoView({behavior: 'smooth'});
 		}
 	}, [messages]);
