@@ -35,7 +35,7 @@ function Message({msg, userDet}) {
 	}
 	
   return (
-    	<div onDoubleClick={addLike} className={`message ${userDet ? 'uudet' : ''} ${msgData.likes.length > 0 ? 'likeAvailable' : ''} ${user.email === msgData.user.email ? 'sent' : ''}`}>
+    	<div onDoubleClick={addLike} className={`message ${userDet ? 'uudet' : ''} ${msgData.likes.length > 0 ? 'likeAvailable' : ''} ${msgData.img ? 'hasImage' : ''} ${user.email === msgData.user.email ? 'sent' : ''}`}>
 			{userDet && <div className="udet">
 				<img src={msgData.user.photoURL}/>
 				<span>{msgData.user.name.split(' ')[0]}</span>

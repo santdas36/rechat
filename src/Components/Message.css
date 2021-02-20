@@ -11,6 +11,12 @@ user-select: none;
 display: flex;
 flex-direction: column;
 }
+.message.hasImage {
+padding: 0.5rem;
+}
+.message.hasImage p.text {
+margin: 0.5rem 0.25rem;
+}
 .message a {
 font-weight: 500;
 color: var(--blue);
@@ -68,7 +74,6 @@ background: var(--dark);
 width: 100%;
 min-width: 360px;
 padding-bottom: 75%;
-margin: 0 -0.5rem 0.5rem -0.5rem;
 border-radius: 1.5rem;
 background: var(--blue);
 overflow: hidden;
