@@ -47,14 +47,11 @@ display: none;
 }
 }
 @media (max-width: 550px) {
-.app {
-height: 100%;
-}
 .app__inner {
 flex-direction: column;
 gap: 0;
 padding: 0;
-height: 100%;
+height: 100vh;
 }
 .login {
 padding: 1.5rem;
