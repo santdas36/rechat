@@ -112,9 +112,6 @@ flex: 1;
 border-radius: 0;
 height: 100%;
 }
-.time {
-white-space: normal;
-}
 .time span {
 display: none;
 }
