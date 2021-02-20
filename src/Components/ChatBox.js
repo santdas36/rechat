@@ -109,6 +109,10 @@ function ChatBox({setSidebarOpen}) {
 			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 			likes: [],
 		}).then((docRef)=> {
+			if (!fileSelected) {
+				setUserInp('');
+				setLoading(false);
+			}
 			db.collection('rooms').doc(roomId).set({
 				last_modified: firebase.firestore.FieldValue.serverTimestamp(),
 				lastMsg: {
@@ -118,9 +122,6 @@ function ChatBox({setSidebarOpen}) {
 			}, {merge: true}).then(() => {
 				if (fileSelected) {
 					uploadImage(docRef.id);
-				} else {
-					setUserInp('');
-					setLoading(false);
 				}
 			});
 		});
