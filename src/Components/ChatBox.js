@@ -64,14 +64,16 @@ function ChatBox({setSidebarOpen}) {
 	useEffect(()=> {
 		if(!notFound) {
 			if (prevMessages.length !== messages.length) {
-				scroller.current.scrollIntoView({behavior: firstLoad ? 'auto' : 'smooth'});
+				if (firstLoad) {
+					scroller.current.scrollIntoView();
+					setFirstLoad(false);
+				} else {
+					scroller.current.scrollIntoView({behavior: 'smooth'});
+				}
 				setPrevMessages(messages);
 			}
-			if (firstLoad && prevMessages) {
-				setFirstLoad(false);
-			}
 		}
-	}, [messages, prevMessages]);
+	}, [messages]);
 	
 	const addImage = () => {
 		if (fileElem.current.files.length > 0) {
