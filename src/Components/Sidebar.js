@@ -19,6 +19,7 @@ function Sidebar({sidebarOpen, setSidebarOpen}) {
 		db.collection('rooms').add({
 			name: roomName,
 			last_modified: firebase.firestore.FieldValue.serverTimestamp(),
+			createdBy: user.uid,
 		}).then((doc)=> {
 			setRoomName('');
 			history.push(`/room/${doc.id}`);
