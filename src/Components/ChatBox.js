@@ -47,7 +47,7 @@ function ChatBox({setSidebarOpen}) {
 		if(messages) {
 			const tempMsgs = messages;
 			const deleted = tempMsgs.every((msg) => {
-				db.collection('rooms').doc(roomId).collection('messages').doc(msg.msgId).delete().then(() => return true).catch((e) => {setError(e.code); return false});
+				db.collection('rooms').doc(roomId).collection('messages').doc(msg.msgId).delete().then(() => {return true}).catch((e) => {setError(e.code); return false});
 			});
 			if (deleted) {
       db.collection('rooms').doc(roomId).set({
