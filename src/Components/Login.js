@@ -37,7 +37,7 @@ function Login() {
 			auth.createUserWithEmailAndPassword(email, password).then(() => {
       		auth.currentUser.updateProfile({
               		displayName: name,
-              		photoURL: `https://avatars.dicebear.com/4.5/api/gridy/${email}.svg`,
+              		photoURL: `https://api.dicebear.com/8.x/miniavs/svg?seed=${email}`,
             	});
               analytics.logEvent('sign_up');
             }).catch((error) => {setError(error.message); setLoading(false)});

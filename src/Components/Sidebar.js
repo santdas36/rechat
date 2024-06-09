@@ -43,7 +43,7 @@ function Sidebar({sidebarOpen, setSidebarOpen}) {
 			</form>
 			{rooms?.map((room) => (
 				<motion.li layout layoutId={room.id} key={room.id}><NavLink onClick={()=>setSidebarOpen(false)} to={`/room/${room.id}`} className="navlink" activeClassName="active">
-					<img src={`https://avatars.dicebear.com/4.5/api/gridy/${room.data().name}.svg`} />
+					<img src={`https://api.dicebear.com/8.x/shapes/svg?seed=${room.data().name}`} />
 					<span>
 						<p className="name">{room.data().name}</p>
 						<p className="msg"><b>{room.data().lastMsg?.from?.split(' ')[0]} </b>{room.data().lastMsg?.message || 'No new messages'}</p>

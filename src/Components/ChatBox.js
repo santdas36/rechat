@@ -141,7 +141,7 @@ function ChatBox({setSidebarOpen}) {
     	:
     	(<><div className="chat__header">
     		<svg onClick={()=>setSidebarOpen(true)} class="openSidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path></svg>
-			<img src={`https://avatars.dicebear.com/4.5/api/gridy/${roomDetails?.name}.svg`}/>
+			<img src={`https://api.dicebear.com/8.x/shapes/svg?seed=${roomDetails?.name}`}/>
 			<h2>{roomDetails?.name}</h2>
 			<div className="chat__options">
 				<button onClick={()=> {setOptionsOpen(!optionsOpen); setDelOpt(null)}}><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg></button>
